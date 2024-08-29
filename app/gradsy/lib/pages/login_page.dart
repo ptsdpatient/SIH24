@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradsy/components/button.dart';
 import 'package:gradsy/components/input.dart';
 
 import '../methods.dart';
@@ -15,19 +16,31 @@ class _LoginPage extends State<LoginPage> {
     double w= getWidth(context);
     double h= getHeight(context);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("Login"),
-      ),
       body: SingleChildScrollView(
-            child:Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text("Center Text"),
-                InputButton(context, w, "username"),
+            child:Container(
+              width: w,
+              height: h,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [getColor("ffffff"),getColor("f1dcff")],
+                )
+              ),
+              child:Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text("Login",style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                    color: getColor("4d88e0")
+                  )),
+                  SizedBox(height:20),
+                  InputButton(context, w, "username",false),
+                  InputButton(context, w, "password",true),
+                  Button(context, w*0.5, "continue"),
 
-              ],
+                ],
+              ),
             )
           )
     );

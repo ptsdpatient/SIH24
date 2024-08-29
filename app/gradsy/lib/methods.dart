@@ -9,6 +9,6 @@ double getHeight(BuildContext context){
 }
 
 Color getColor(String hexCode) {
-  hexCode = hexCode.replaceFirst('#', '');
+  // hexCode = hexCode.replaceFirst('#', '');
   return Color(int.parse('0xff$hexCode'));
 }

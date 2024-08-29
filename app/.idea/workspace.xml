@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4c7ee51-7c5b-4d81-aa02-ce173dc29ffe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/lib/components/button.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/lib/components/input.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/lib/methods.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/lib/pages/home_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/lib/pages/login_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/lib/pages/register_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/lib/pages/settings_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradsy/fonts/poppins.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/lib/components/button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/components/button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/lib/components/input.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/components/input.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradsy/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/lib/methods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/methods.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/lib/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,22 +32,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ptsdpatient"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ptsdpatient&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ptsdpatient/SIH24.git",
-    "accountId": "c6687287-a350-469a-b7c5-1d748b6eed0a"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ptsdpatient/SIH24.git&quot;,
+    &quot;accountId&quot;: &quot;c6687287-a350-469a-b7c5-1d748b6eed0a&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2lJp1CZlwORVRKL4PPMYFpS90JP" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -68,7 +64,6 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",

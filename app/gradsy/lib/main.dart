@@ -13,7 +13,8 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: "Hello World",
       theme: ThemeData(
-        primarySwatch: Colors.blue
+        primarySwatch: Colors.blue,
+        fontFamily: 'Poppins',
       ),
       debugShowCheckedModeBanner: false,
       home: LoginPage(),
