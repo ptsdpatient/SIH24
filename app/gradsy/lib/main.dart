@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradsy/pages/home_page.dart';
 import 'package:gradsy/pages/login_page.dart';
-import 'package:gradsy/pages/register_page.dart';
 import 'package:gradsy/pages/settings_page.dart';
 
 void main() => runApp(MainApp());
@@ -11,7 +10,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      title: "Hello World",
+      title: "Gradsy",
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'Poppins',
@@ -20,7 +19,6 @@ class MainApp extends StatelessWidget {
       home: LoginPage(),
       routes: {
         '/login': (context) => LoginPage(),
-        '/register': (context) => RegisterPage(),
         '/home': (context) => HomePage(),
         '/settings': (context) => SettingsPage(),
       },
