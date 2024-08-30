@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:gradsy/theme.dart';
 
 import '../methods.dart';
 
 Widget Button(BuildContext context,double w,String label){
   return Padding(
-      padding: const EdgeInsets.only(top:15),
+      padding: const EdgeInsets.only(top:20),
       child:
       Container(
           width: w,
           decoration: BoxDecoration(
               color: Colors.pinkAccent,
-              borderRadius: BorderRadius.circular(10),
-              gradient: LinearGradient(colors: [getColor("4d88e0"),getColor("bd85e0")]),
-              boxShadow: const [BoxShadow(color: Colors.white70, blurRadius: 2, spreadRadius: 1)]
-          ),  child:Padding(padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+              borderRadius: BorderRadius.circular(25),
+              gradient: LinearGradient(colors: [getColor(currentTheme.gradientStart),getColor(currentTheme.gradientEnd)]),
+          ),  child:Padding(padding: EdgeInsets.symmetric(horizontal: 10,vertical: 13),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [

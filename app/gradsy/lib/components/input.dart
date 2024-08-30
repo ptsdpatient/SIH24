@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../methods.dart';
+import '../theme.dart';
 
 class Input extends StatefulWidget{
   final bool obscure;
@@ -23,7 +24,7 @@ class _InputState extends State<Input> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    obscure=!widget.obscure;
+    obscure=widget.obscure;
   }
 
   @override
@@ -35,10 +36,8 @@ class _InputState extends State<Input> {
           Container(
               width: widget.width*0.9,
               decoration: BoxDecoration(
-                  color: Colors.pinkAccent,
                   borderRadius: BorderRadius.circular(24),
-                  gradient: LinearGradient(colors: [getColor("4d88e0"),getColor("bd85e0")]),
-                  boxShadow: const [BoxShadow(color: Colors.white70, blurRadius: 2, spreadRadius: 1)]
+                  gradient: LinearGradient(colors: [getColor(currentTheme.gradientStart),getColor(currentTheme.gradientEnd)]),
               ),child:Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4,vertical: 4),
                   child: ClipRRect(
@@ -46,9 +45,8 @@ class _InputState extends State<Input> {
                         child: TextField(
                             scrollPhysics: BouncingScrollPhysics(),
                             obscureText: obscure,
-
                             style: TextStyle(color: Colors.black),
-                            cursorColor: getColor("4d88e0"),
+                            cursorColor: getColor(currentTheme.gradientStart),
                             decoration:InputDecoration(
                                 filled: true,
                                 fillColor: Colors.white,
@@ -57,10 +55,10 @@ class _InputState extends State<Input> {
                                     setState(() {
                                       obscure=!obscure;
                                     });
-                                  }, icon: Icon(Icons.remove_red_eye,color: getColor("4d88e0"),)),):null,
+                                  }, icon: Icon(Icons.remove_red_eye,color: getColor(currentTheme.gradientStart),)),):null,
                                 labelText: widget.label,
                                 border: InputBorder.none,
-                                labelStyle:TextStyle(color: getColor("4d88e0"))
+                                labelStyle:TextStyle(color: getColor(currentTheme.gradientStart))
                             )
                         ),
                       )

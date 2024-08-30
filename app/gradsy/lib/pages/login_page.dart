@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gradsy/components/button.dart';
 import 'package:gradsy/components/input.dart';
+import 'package:gradsy/global_data.dart';
+import 'package:gradsy/theme.dart';
 
 import '../methods.dart';
+import '../theme.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -22,7 +25,7 @@ class _LoginPage extends State<LoginPage> {
               height: h,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [getColor("ffffff"),getColor("f1dcff")],
+                  colors: [getColor(userTheme.modeBG()),getColor(userTheme.getGradient())],
                 )
               ),
               child:Column(
@@ -32,7 +35,7 @@ class _LoginPage extends State<LoginPage> {
                   Text("Login",style: TextStyle(
                     fontSize: 35,
                     fontWeight: FontWeight.bold,
-                    color: getColor("4d88e0")
+                    color: getColor(userTheme.textMode())
                   )),
                   SizedBox(height:20),
                   Input(
