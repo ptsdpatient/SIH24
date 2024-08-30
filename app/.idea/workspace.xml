@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4c7ee51-7c5b-4d81-aa02-ce173dc29ffe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/gradsy/lib/global_data.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/lib/theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradsy/lib/components/button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/components/button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradsy/lib/components/input.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/components/input.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradsy/lib/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
