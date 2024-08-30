@@ -35,8 +35,17 @@ class _LoginPage extends State<LoginPage> {
                     color: getColor("4d88e0")
                   )),
                   SizedBox(height:20),
-                  InputButton(context, w, "username",false),
-                  InputButton(context, w, "password",true),
+                  Input(
+                      width: w,
+                      label: "username",
+                      obscure: false
+                  ),
+                  Input(
+                      width: w,
+                      label: "password",
+                      obscure: true
+                  ),
+
                   Button(context, w*0.5, "continue"),
 
                 ],

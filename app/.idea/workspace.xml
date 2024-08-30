@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4c7ee51-7c5b-4d81-aa02-ce173dc29ffe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/gradsy/fonts/poppins.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradsy/lib/components/button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/components/button.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradsy/lib/components/input.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/components/input.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradsy/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradsy/lib/methods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/methods.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradsy/lib/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/pages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradsy/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +43,9 @@
     &quot;accountId&quot;: &quot;c6687287-a350-469a-b7c5-1d748b6eed0a&quot;
   }
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
@@ -61,16 +63,20 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Flutter.main.dart.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
+    "com.codeium.enabled": "true",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "master",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "AndroidSdkUpdater",
+    "last_opened_file_path": "/home/tanishqdhote/apps/flutter/bin/cache/dart-sdk",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
