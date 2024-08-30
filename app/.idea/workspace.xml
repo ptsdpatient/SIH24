@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4c7ee51-7c5b-4d81-aa02-ce173dc29ffe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/images/apple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/images/google.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/images/linkedin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/images/logo-small.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradsy/lib/components/login.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradsy/lib/components/button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/components/button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradsy/lib/components/input.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/components/input.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradsy/lib/global_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/global_data.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradsy/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradsy/lib/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/pages/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradsy/lib/pages/register_page.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradsy/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

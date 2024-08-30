@@ -36,7 +36,7 @@ class _LoginPage extends State<LoginPage> {
                         Container(
                           width: w,
                           height: 230,
-                          margin: EdgeInsets.only(top:30,bottom: 10),
+                          margin: EdgeInsets.only(top:60,bottom: 10),
                           decoration: BoxDecoration(
                               gradient: GlobalData.instance.lightMode || GlobalData.instance.theme=="Zen"?
                               RadialGradient(colors: [
@@ -54,7 +54,7 @@ class _LoginPage extends State<LoginPage> {
                               ])
                           ),
                           child:Padding(
-                            padding:EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                            padding:EdgeInsets.symmetric(horizontal: 0,vertical: 0),
                             child:Image.asset("images/icon.png"),
                           ),
                         ),
@@ -127,6 +127,7 @@ class _LoginPage extends State<LoginPage> {
                               Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
+
                                     Input(
                                         width: w,
                                         label: "name",
@@ -137,6 +138,7 @@ class _LoginPage extends State<LoginPage> {
                                         label: "email",
                                         obscure: false
                                     ),
+
                                     Input(
                                         width: w,
                                         label: "password",
