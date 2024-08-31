@@ -33,31 +33,35 @@ class _LoginPage extends State<LoginPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          width: w,
-                          height: 230,
-                          margin: EdgeInsets.only(top:60,bottom: 10),
-                          decoration: BoxDecoration(
-                              gradient: GlobalData.instance.lightMode || GlobalData.instance.theme=="Zen"?
-                              RadialGradient(colors: [
-                                Colors.white,
-                                Colors.white.withOpacity(0.75),
-                                Colors.white.withOpacity(0.5),
-                                Colors.white.withOpacity(0)
-                              ]):
 
-                              RadialGradient(colors: [
-                                getColor(currentTheme.gradientStart),
-                                getColor(currentTheme.gradientStart).withOpacity(0.75),
-                                getColor(currentTheme.gradientStart).withOpacity(0.5),
-                                getColor(currentTheme.gradientStart).withOpacity(0),
-                              ])
-                          ),
-                          child:Padding(
-                            padding:EdgeInsets.symmetric(horizontal: 0,vertical: 0),
-                            child:Image.asset("images/icon.png"),
-                          ),
-                        ),
+
+                       Expanded(
+                           child:  Container(
+                             width: w,
+                             height: 230,
+                             margin: EdgeInsets.only(top:60 ,bottom: 10),
+                             decoration: BoxDecoration(
+                                 gradient: GlobalData.instance.lightMode || GlobalData.instance.theme=="Zen"?
+                                 RadialGradient(colors: [
+                                   Colors.white,
+                                   Colors.white.withOpacity(0.75),
+                                   Colors.white.withOpacity(0.5),
+                                   Colors.white.withOpacity(0)
+                                 ]):
+
+                                 RadialGradient(colors: [
+                                   getColor(currentTheme.gradientStart),
+                                   getColor(currentTheme.gradientStart).withOpacity(0.75),
+                                   getColor(currentTheme.gradientStart).withOpacity(0.5),
+                                   getColor(currentTheme.gradientStart).withOpacity(0),
+                                 ])
+                             ),
+                             child:Padding(
+                               padding:EdgeInsets.symmetric(horizontal: 0,vertical: 0),
+                               child:Image.asset("images/icon.png"),
+                             ),
+                           ),
+                       ),
 
                         TabBar(
                             indicatorPadding: EdgeInsets.only(top: 25),

@@ -1,0 +1,111 @@
+1. Profile
+
+id	
+email	
+First name
+Last Name
+password (hashed/crypted)
+mobile no.
+Pronouns
+Headline	
+college code	
+DOBirth	
+Interests (array of liking)                                   
+Skills	Bio	
+Position	
+Experiences	
+Location City	
+Location State	
+Location Country	
+Views	
+Services	
+Projects	
+Languages	
+profilepicurl	
+banner	
+theme	
+lightMode	
+industry	
+Website	Link
+custom button
+Address
+
+
+2. Messages
+id
+sender
+chanelID
+message
+time
+deleted
+
+3. Message Channel
+id
+userid1
+userid2
+channelID
+time
+deleted
+
+
+4. post
+id
+imageurls array
+title
+subtitle
+content
+likes 
+reactions
+shares
+comment channel id
+
+5. Comments
+id
+userid
+content
+reactions
+isReply
+replyCommentId
+deleted
+
+
+6. events/ gatherings
+id
+pic_urls_array
+post_id
+interested users[id array]
+location
+url
+
+
+7. Donation/ audit
+id
+donator_id
+amount
+interest
+user_id
+title
+content
+review
+
+
+8. notifications
+id
+userid
+notification type
+title
+content 
+time
+read?
+
+
+
+
+
+
+
+
+
+
+
+
