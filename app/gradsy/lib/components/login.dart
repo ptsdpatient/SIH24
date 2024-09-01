@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../methods.dart';
-import '../theme.dart';
 
 class LoginButton extends StatefulWidget{
   final String url;
@@ -23,12 +21,11 @@ class _LoginButtonState extends State<LoginButton> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(50),
         child: Container(
-
           padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
           width: widget.width,
           height: widget.width,
           color: Colors.white,
-          child: Image.asset("images/${widget.url}.png"),
+            child: Image.asset("images/${widget.url}.png"),
       ),
     );
   }

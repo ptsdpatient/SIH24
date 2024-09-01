@@ -5,6 +5,6 @@ class GlobalData {
 
   static GlobalData get instance => _instance;
 
-  String theme = 'Nebula';
-  bool lightMode = true;
+  String theme = 'Burn';
+  bool lightMode = false;
 }
