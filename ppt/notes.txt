@@ -1,0 +1,54 @@
+User ID: Unique identifier for the user.
+First Name: User's first name.
+Last Name: User's last name.
+Email Address: For login and communication.
+Password Hash: Encrypted password for authentication.
+Profile Picture URL: Link to the user's profile picture.
+Headline: A brief headline or tagline (e.g., "Software Engineer at XYZ").
+Summary: A short bio or summary about the user.
+Location: Current location of the user (city, state, country).
+Contact Information: Additional contact details (phone, secondary email, etc.).
+Professional Information
+Current Position: Job title of the current position.
+Current Company: Name of the current company.
+Industry: Industry the user is involved in.
+Experience: List of past positions, each with:
+Company Name
+Job Title
+Start Date
+End Date
+Description
+Education: List of educational qualifications, each with:
+Institution Name
+Degree
+Field of Study
+Start Year
+End Year
+Skills: A list of skills the user possesses.
+Endorsements: Skills endorsed by other users.
+Recommendations: Recommendations from other users.
+Certifications: Any relevant certifications, with:
+Certification Name
+Issuing Organization
+Issue Date
+Expiration Date
+Volunteer Experience: Details of any volunteer work.
+Additional Information
+Projects: Projects the user has worked on, with:
+Project Name
+Description
+URL
+Associated Skills
+Languages: Languages spoken and proficiency levels.
+Publications: Publications authored by the user.
+Courses: Relevant courses completed by the user.
+Awards: Awards or honors received.
+Connections: List of user connections (friends, colleagues).
+Groups: Groups or communities the user is part of.
+Following: Companies, influencers, or topics the user follows.
+Privacy and Account Settings
+Account Status: Active, deactivated, or suspended status.
+Visibility Settings: Settings related to profile visibility and privacy.
+Notification Preferences: Preferences for email and in-app notifications.
+Account Creation Date: When the account was created.
+Last Login: Timestamp of the last login.

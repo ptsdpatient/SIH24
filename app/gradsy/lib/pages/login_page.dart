@@ -13,6 +13,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPage extends State<LoginPage> {
+
   @override
   Widget build(BuildContext context) {
     double w = getWidth(context);
@@ -113,10 +114,14 @@ class _LoginPage extends State<LoginPage> {
                             label: "password",
                             obscure: true,
                           ),
-                          Button(context, w * 0.5, "continue"),
+
+                          IconButton(onPressed:(){
+                            Navigator.pushNamed(context, "/home");
+                          }, icon: Button(context, w * 0.5, "continue"),),
+
                           SizedBox(height: 0),
                           Padding(
-                            padding: EdgeInsets.only(top: 30, bottom: 10),
+                            padding: const EdgeInsets.only(top: 30, bottom: 20),
                             child: Text(
                               "or login with",
                               style:
@@ -129,15 +134,18 @@ class _LoginPage extends State<LoginPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 LoginButton(
+                                  id: 0,
                                   url: "google",
                                   width: w * 0.17,
                                 ),
                                 LoginButton(
+                                  id: 1,
                                   url: "linkedin",
                                   width: w * 0.17,
                                 ),
                                 LoginButton(
-                                  url: "apple",
+                                  id: 2,
+                                  url: "github",
                                   width: w * 0.17,
                                 ),
                               ],
