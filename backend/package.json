@@ -13,6 +13,7 @@
     "gradsy": "file:",
     "mongodb": "^6.8.0",
     "pg": "^8.12.0",
+    "postgres": "^3.4.4",
     "sqlite3": "^5.1.7"
   }
 }
