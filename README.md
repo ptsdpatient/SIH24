@@ -23,3 +23,6 @@ To start the PostgreSQL server using the command line on Windows:
 
    ```bash
    cd C:\Program Files\PostgreSQL\<version>\bin
+
+
+ how to run the schema in posgres terminal : \i E:/SIH24/backend/schema.sql

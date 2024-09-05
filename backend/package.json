@@ -9,6 +9,7 @@
   "author": "Orbit Tech",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "express": "^4.19.2",
     "gradsy": "file:",
     "mongodb": "^6.8.0",

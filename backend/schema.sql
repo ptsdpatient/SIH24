@@ -1,34 +1,34 @@
 CREATE TABLE pronouns (
-    id INTEGER PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     pronoun TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE countries (
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     country TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE states (
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     state_name TEXT NOT NULL UNIQUE,
     country INTEGER,
     FOREIGN KEY (country) REFERENCES countries(id)
 );
 
 CREATE TABLE cities (
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     city_name TEXT NOT NULL UNIQUE,
     state_name INTEGER,
     FOREIGN KEY (state_name) REFERENCES states(id)
 );
 
 CREATE TABLE universities (
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     university TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE colleges (
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     college TEXT NOT NULL UNIQUE,
     university INTEGER,
     FOREIGN KEY (university) REFERENCES universities(id),
@@ -37,23 +37,23 @@ CREATE TABLE colleges (
 );
 
 CREATE TABLE languages (
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     language_name TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE industries (
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     industry TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE interests(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     interest TEXT NOT NULL UNIQUE
 );
 
 
 CREATE TABLE users (
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     isAdmin INTEGER DEFAULT 0,
     isFaculty INTEGER DEFAULT 0,
     first_name TEXT,
@@ -93,24 +93,24 @@ CREATE TABLE users (
 
 
 CREATE TABLE user_interests(
-    id INTEGER PRIMARY KEY ,
-    user_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    user_id SERIAL,
     interest INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (interest) REFERENCES interests(id)
 );
 
 CREATE TABLE user_languages(
-    id INTEGER PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     user_language INTEGER,
-    user_id INTEGER,
+    user_id SERIAL,
     FOREIGN KEY (user_language) REFERENCES languages(id), 
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 
 CREATE TABLE campaigns(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     title VARCHAR DEFAULT NULL,
     campaign_description TEXT DEFAULT NULL,
     created_by INTEGER,
@@ -124,8 +124,8 @@ CREATE TABLE campaigns(
 );
 
 CREATE TABLE donations(
-    id INTEGER PRIMARY KEY ,
-    user_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    user_id SERIAL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     amount DECIMAL NOT NULL,
     campaign INTEGER,
@@ -136,7 +136,7 @@ CREATE TABLE donations(
 );
 
 CREATE TABLE events(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     title VARCHAR DEFAULT NULL,
     event_description TEXT DEFAULT NULL,
     event_location VARCHAR DEFAULT NULL,
@@ -151,9 +151,9 @@ CREATE TABLE events(
 );
 
 CREATE TABLE event_registeration(
-    id INTEGER PRIMARY KEY ,
-    event_id INTEGER,
-    user_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    event_id SERIAL,
+    user_id SERIAL,
     registeration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (event_id) REFERENCES events(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
@@ -161,12 +161,12 @@ CREATE TABLE event_registeration(
 );
 
 CREATE TABLE job_types(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     job_type VARCHAR
 );
 
 CREATE TABLE jobs(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     title VARCHAR,
     company VARCHAR,
     city INTEGER,
@@ -182,15 +182,15 @@ CREATE TABLE jobs(
 );
 
 CREATE TABLE job_status(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     job_status VARCHAR
 );
 
 CREATE TABLE job_applications(
-    id INTEGER PRIMARY KEY ,
-    job_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    job_id SERIAL,
     FOREIGN KEY (job_id) REFERENCES jobs(id),
-    user_id INTEGER,
+    user_id SERIAL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     application_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     application_status VARCHAR,
@@ -198,7 +198,7 @@ CREATE TABLE job_applications(
 );
 
 CREATE TABLE networking_groups(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     group_name VARCHAR,
     group_description TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -207,9 +207,9 @@ CREATE TABLE networking_groups(
 );
 
 CREATE TABLE group_members(
-    id INTEGER PRIMARY KEY ,
-    group_id INTEGER,
-    user_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    group_id SERIAL,
+    user_id SERIAL,
     FOREIGN KEY (group_id) REFERENCES networking_groups(id),
     FOREIGN KEY (user_id) REFERENCES users(id),
     joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -217,8 +217,8 @@ CREATE TABLE group_members(
 );
  
 CREATE TABLE success_stories(
-    id INTEGER PRIMARY KEY ,
-    user_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    user_id SERIAL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     title VARCHAR,
     story TEXT,
@@ -228,8 +228,8 @@ CREATE TABLE success_stories(
 );
 
 CREATE TABLE feedback(
-    id INTEGER PRIMARY KEY ,
-    user_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    user_id SERIAL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     comment TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -237,8 +237,8 @@ CREATE TABLE feedback(
 );
 
 CREATE TABLE notifications(
-    id INTEGER PRIMARY KEY ,
-    user_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    user_id SERIAL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     notification_type VARCHAR,
     notification_message TEXT,
@@ -247,8 +247,8 @@ CREATE TABLE notifications(
 );
 
 CREATE TABLE activity_logs(
-    id INTEGER PRIMARY KEY ,
-    user_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    user_id SERIAL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     activity_type VARCHAR,
     activity_message TEXT,
@@ -256,10 +256,10 @@ CREATE TABLE activity_logs(
 );
 
 CREATE TABLE mentorships(
-    id INTEGER PRIMARY KEY ,
-    mentor_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    mentor_id SERIAL,
     FOREIGN KEY (mentor_id) REFERENCES users(id),
-    mentee_id INTEGER,
+    mentee_id SERIAL,
     FOREIGN KEY (mentee_id) REFERENCES users(id),
     mentorship_status VARCHAR,
     started_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -269,11 +269,11 @@ CREATE TABLE mentorships(
 
 
 CREATE TABLE message_channels(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     created_by INTEGER,
     FOREIGN KEY (created_by) REFERENCES users(id),
-    recipient_id INTEGER,
+    recipient_id SERIAL,
     FOREIGN KEY (recipient_id) REFERENCES users(id),
     last_message_at TIMESTAMP DEFAULT NULL,
     last_message_text TEXT DEFAULT NULL,
@@ -282,10 +282,10 @@ CREATE TABLE message_channels(
 );
 
 CREATE TABLE messages(
-    id INTEGER PRIMARY KEY ,
-    channel_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    channel_id SERIAL,
     FOREIGN KEY (channel_id) REFERENCES message_channels(id),
-    sender_id INTEGER,
+    sender_id SERIAL,
     FOREIGN KEY (sender_id) REFERENCES users(id),
     message_text TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -306,7 +306,7 @@ CREATE TABLE messages(
 );
 
 CREATE TABLE announcements(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     announcement_title VARCHAR NOT NULL,
     announcement_description TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -317,7 +317,7 @@ CREATE TABLE announcements(
 );
 
 CREATE TABLE projects(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     project_title VARCHAR NOT NULL,
     project_description TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -331,15 +331,15 @@ CREATE TABLE projects(
     deleted_by INTEGER,
     FOREIGN KEY (deleted_by) REFERENCES users(id),
     start_at TIMESTAMP DEFAULT NULL,
-    donation_id INTEGER,
+    donation_id SERIAL,
     FOREIGN KEY (donation_id) REFERENCES donations(id)
 );
 
 CREATE TABLE project_members(
-    id INTEGER PRIMARY KEY ,
-    project_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    project_id SERIAL,
     FOREIGN KEY (project_id) REFERENCES projects(id),
-    user_id INTEGER,
+    user_id SERIAL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     role VARCHAR NOT NULL,
     joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -353,8 +353,8 @@ CREATE TABLE project_members(
 );
 
 CREATE TABLE achievements(
-    id INTEGER PRIMARY KEY ,
-    user_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    user_id SERIAL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     achievement_title VARCHAR NOT NULL,
     achievement_description TEXT NOT NULL,
@@ -367,7 +367,7 @@ CREATE TABLE achievements(
 
 
 CREATE TABLE learning_resources(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     title VARCHAR NOT NULL,
     description TEXT NOT NULL,
     url VARCHAR NOT NULL,
@@ -377,7 +377,7 @@ CREATE TABLE learning_resources(
 );
 
 CREATE TABLE blogs(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     title VARCHAR NOT NULL,
     content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -388,10 +388,10 @@ CREATE TABLE blogs(
 );
 
 CREATE TABLE comments(
-    id INTEGER PRIMARY KEY ,
-    blog_id INTEGER,
+    id SERIAL PRIMARY KEY ,
+    blog_id SERIAL,
     FOREIGN KEY (blog_id) REFERENCES blogs(id),
-    user_id INTEGER,
+    user_id SERIAL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     comment_text TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

@@ -1,12 +1,15 @@
 const express = require('express');
-const pool = require('./database'); // Import the pool from database.js
-
+const pool = require('./database'); 
+const { hashPassword, comparePassword } = require('./auth'); 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 
+
+
 app.get('/users', async (req, res) => {
+    console.log("get request")
     try {
         const result = await pool.query('SELECT * FROM users');
         res.json(result.rows);
