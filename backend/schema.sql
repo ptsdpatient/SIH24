@@ -29,6 +29,7 @@ CREATE TABLE universities (
 
 CREATE TABLE colleges (
     id SERIAL PRIMARY KEY ,
+    college_code INTEGER,
     college TEXT NOT NULL UNIQUE,
     university INTEGER,
     FOREIGN KEY (university) REFERENCES universities(id),

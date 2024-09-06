@@ -7,8 +7,10 @@ class Input extends StatefulWidget{
   final bool obscure;
   final double width;
   final String label;
+  final TextEditingController controller;
   const Input ({
     Key? key,
+    required this.controller,
     required this.label,
     required this.obscure,
     required this.width,
@@ -20,12 +22,15 @@ class Input extends StatefulWidget{
 
 class _InputState extends State<Input> {
   bool obscure = false;
+
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     obscure=widget.obscure;
   }
+
 
   @override
   Widget build(BuildContext context){
@@ -43,6 +48,7 @@ class _InputState extends State<Input> {
                   child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: TextField(
+                            controller: widget.controller,
                             scrollPhysics: BouncingScrollPhysics(),
                             obscureText: obscure,
                             style: TextStyle(color: Colors.black),

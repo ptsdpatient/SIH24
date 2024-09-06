@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:gradsy/components/button.dart';
 import 'package:gradsy/components/input.dart';
 import 'package:gradsy/global_data.dart';
 import 'package:gradsy/theme.dart';
-
+import 'package:http/http.dart' as http;
 import '../components/login.dart';
 import '../methods.dart';
 
@@ -13,6 +16,69 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPage extends State<LoginPage> {
+
+  final apiKey=dotenv.env['API_KEY']!;
+
+  TextEditingController emailController = TextEditingController(), passwordController = TextEditingController(), collegeCodeController = TextEditingController(),confirmPasswordController = TextEditingController();
+
+  Future<void> loginUser(String email, String password) async {
+    final url = Uri.parse(apiKey+'login');
+
+    final body = jsonEncode({
+      'email': email,
+      'password': password,
+    });
+
+    try {
+      final response = await http.post(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: body,
+      );
+
+      if (response.statusCode == 200) {
+        print('Login successful: ${response.body}');
+        Navigator.pushNamed(context, '/home');
+      } else {
+        print('Login failed: ${response.statusCode} - ${response.body}');
+      }
+    } catch (error) {
+      print('Error occurred: $error');
+    }
+  }
+
+
+  Future<void> registerUser(String email, String password,String confirmPassword,String collegeCode) async {
+    final url = Uri.parse('http://localhost:3000/login');
+
+    final body = jsonEncode({
+      'email': email,
+      'password': password,
+      'confirm_password': confirmPassword,
+      'college_code': collegeCode,
+    });
+
+    try {
+      final response = await http.post(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: body,
+      );
+
+      if (response.statusCode == 200) {
+        print('Login successful: ${response.body}');
+        Navigator.pushNamed(context, '/home');
+      } else {
+        print('Login failed: ${response.statusCode} - ${response.body}');
+      }
+    } catch (error) {
+      print('Error occurred: $error');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,11 +171,13 @@ class _LoginPage extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Input(
+                            controller: emailController,
                             width: w,
                             label: "email",
                             obscure: false,
                           ),
                           Input(
+                            controller: passwordController,
                             width: w,
                             label: "password",
                             obscure: true,
@@ -117,7 +185,12 @@ class _LoginPage extends State<LoginPage> {
 
                           IconButton(onPressed:(){
                             Navigator.pushNamed(context, "/home");
-                          }, icon: Button(context, w * 0.5, "continue"),),
+                            },
+                            icon: Button(context, w * 0.5, "continue",
+                                  () async {
+                                await loginUser(emailController.text, passwordController.text);
+                              },                            ),
+                          ),
 
                           SizedBox(height: 0),
                           Padding(
@@ -157,26 +230,35 @@ class _LoginPage extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Input(
-                            width: w,
-                            label: "name",
-                            obscure: false,
-                          ),
-                          Input(
+                            controller: emailController,
                             width: w,
                             label: "email",
                             obscure: false,
                           ),
                           Input(
+                            controller: collegeCodeController,
+                            width: w,
+                            label: "college code",
+                            obscure: false,
+                          ),
+                          Input(
+                            controller: passwordController,
                             width: w,
                             label: "password",
                             obscure: true,
                           ),
                           Input(
+                            controller: confirmPasswordController,
                             width: w,
                             label: "confirm password",
                             obscure: true,
                           ),
-                          Button(context, w * 0.5, "Sign Up"),
+                          Button(
+                              context, w * 0.5, "Sign Up",
+                              () async {
+                              await registerUser(emailController.text, passwordController.text, confirmPasswordController.text, collegeCodeController.text) as Future<void> Function();
+                              }
+                          ),
                         ],
                       ),
                     ],
