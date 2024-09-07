@@ -3,8 +3,10 @@ const pool = require('./database');
 const { comparePassword } = require('./auth'); 
 const app = express();
 const port = 3000;
+const { printValue, printLog } = require('./print');
 
 app.use(express.json());
+
 
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
@@ -20,7 +22,7 @@ app.post('/login', async (req, res) => {
         const { rows } = await pool.query(query, [email]);
 
         if (rows.length === 0) {
-            console.log("No user found with this email");
+            console.log(printLog('->','r','401','User not found with : '),printValue('email', email),printValue('password', password))
             return res.status(401).json({ error: 'Invalid email or password' });
         }
 
@@ -28,10 +30,10 @@ app.post('/login', async (req, res) => {
         const isMatch = await comparePassword(password, hashedPassword);
 
         if (isMatch) {
-            console.log("Login Request Successful ✅ \nuser: ", email, "\n password: ", password);
+            console.log(printLog('->','g','200','Login request successful with : '),printValue('email', email),printValue('password',password))
             return res.status(200).json({ message: 'Login successful' });
         } else {
-            console.log("Login Request Denied to user: ", email, " password: ", password);
+            // console.log(printLog('->','r','401','User not found with : '),printValue('email', email))
             return res.status(401).json({ error: 'Invalid email or password' });
         }
     } catch (err) {
@@ -41,7 +43,5 @@ app.post('/login', async (req, res) => {
 });
 
 app.listen(port, () => {
-
-    console.log(`\n [] Server has started on http://localhost:${port}\n`);
-
+    console.log(`\n\n\t\t\x1b[37m[⚡️] Gradsy server has started on \x1b[36mhttp://localhost:${port}\n\x1b[37m`);
 });

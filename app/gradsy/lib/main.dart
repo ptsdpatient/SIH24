@@ -4,9 +4,9 @@ import 'package:gradsy/pages/login_page.dart';
 import 'package:gradsy/pages/settings_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
-runApp(MainApp());
-  dotenv.load(fileName: ".env");
+Future<void> main() async {
+  await dotenv.load(fileName: ".env");
+  runApp(MainApp());
 }
 
 class MainApp extends StatelessWidget {
