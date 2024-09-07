@@ -27,3 +27,4 @@ module.exports = {
     comparePassword,
 };
 
+// console.log(hashPassword('hibro'))

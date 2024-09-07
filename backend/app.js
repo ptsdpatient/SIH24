@@ -8,6 +8,10 @@ const { printValue, printLog } = require('./print');
 app.use(express.json());
 
 
+app.get('/messageChannel',async(req,res)=>{
+    
+})
+
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
    
