@@ -9,8 +9,7 @@ Widget Button(BuildContext context,double w,String label,Future<void> Function()
     onTap: onTap,
     child: Padding(
         padding: const EdgeInsets.only(top:23),
-        child:
-        Container(
+        child: Container(
           width: w,
           decoration: BoxDecoration(
             color: Colors.pinkAccent,
@@ -24,7 +23,7 @@ Widget Button(BuildContext context,double w,String label,Future<void> Function()
                 Icon(Icons.arrow_right_alt,color: !GlobalData.instance.lightMode &&GlobalData.instance.theme=="Zen"?Colors.black:Colors.white,)
               ],
             )
-        ),
+          ),
         )
     ),
   );
