@@ -1,7 +1,7 @@
 <script>
     import {onMount} from 'svelte'
 
-    let apiKey='https://c112-2401-4900-1c9a-8d23-4d54-16fd-38dc-e663.ngrok-free.app/'
+    const apiKey = import.meta.env.VITE_API_KEY;
 
 
     async function authenticateToken(token){

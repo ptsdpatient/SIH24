@@ -13,21 +13,30 @@ app.use(cors())
 
 
 
-app.get('/authenticateToken',(req,res)=>{
+app.get('/authenticateToken',async (req,res)=>{
+
     const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1]; 
-    console.log("authenticating")
+    const token = authHeader && authHeader.split(' ')[1];
+
+     
+    
     if (!token) {
       return res.status(401).json({ error: 'Token is required' });
     }
-    console.log(printLog('->','g','200','Token is valid'),printValue('user',user))
 
     jwt.verify(token, secretKey, (err, user) => {
-      if (err) {
-        return res.status(403).json({ error: 'Invalid token' });
-      }
-  
-      console.log(printLog('->','g','200','Token is valid'),printValue('user',user))
+
+        if (err) {
+            return res.status(403).json({ error: 'Invalid token'+err });
+        }
+
+        console.log(user +" "+ user.userId)
+        
+        const userInfo =  pool.query('SELECT * FROM users WHERE id = $1', [user.userId])
+
+        console.log(printLog('->','g','200','Token is valid'),printValue('user',user))
+
+        return res.status(200).json({auth:true,user:userInfo.rows[0]})
 
     });
 })

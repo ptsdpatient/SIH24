@@ -1,29 +1,27 @@
 <script>
-    // import {onMount} from 'svelte'
+    import {onMount} from 'svelte'
+    const apiKey = import.meta.env.VITE_API_KEY;
 
-    let apiKey='https://c112-2401-4900-1c9a-8d23-4d54-16fd-38dc-e663.ngrok-free.app/'
     let email = '';
     let password = '';
-    let admin=false
-    let login=false
-    let messages=[]
-    let userDetails
 
-
-    // async function authenticateToken(token){
-    //     try{
-    //         const response = await fetch((apiKey+'authenticateToken'), {
-    //             method: 'GET',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Authorization': `Bearer ${token}`
-    //             }
-    //         })
-    //         const data = await response.json();
-    //     }catch(err){
-    //         alert("your session has expired, please login again")
-    //     }
-    // }
+    async function authenticateToken(token){
+        try{
+            const response = await fetch((apiKey+'authenticateToken'), {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            const data = await response.json();
+            if(data.auth){
+              window.location.href = '/home'
+            }
+        }catch(err){
+            alert("your session has expired, please login again")
+        }
+    }
   
     async function handleLogin() {
       const loginData = {
@@ -95,17 +93,17 @@
     }
 
 
-    // onMount(()=>{
-    //      const token = localStorage.getItem('token');
-    //      if(token) {
-    //         authenticateToken(token)
-    //      }
-    // })
+    onMount(()=>{
+         const token = localStorage.getItem('token');
+         if(token) {
+            authenticateToken(token)
+         }
+    })
 
   </script>
 
 
-<div class="flex flex-col md:flex-row justify-end bg-gradient-to-r from-purple-600 to-blue-400" style="width:100vw;height:100svh">
+<div class="flex flex-col md:flex-row justify-end bg-gradient-to-r from-green-600 to-blue-500" style="width:100vw;height:100svh">
 
     <div class=" absolute md:relative flex items-center justify-center p-4">
         <div class="bg-white bg-opacity-30 backdrop-blur rounded-lg shadow-lg p-6 max-w-md w-full animate-fadeIn">
