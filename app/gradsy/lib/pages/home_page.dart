@@ -35,18 +35,19 @@ class _HomePageState extends State<HomePage> {
   var currentBottomIndex=0;
   final searchController=TextEditingController();
 
-  List<BottomNavigationItems> bottomNavigationItems=[
-    BottomNavigationItems(
-      icon: Icons.home,
-      label: "Home",
-      navigationItems: [
-        TabNavigationItems(
-          icon: Icons.home,
-          label: "Home",
-          url: "/home",
+  // List<BottomNavigationItems> bottomNavigationItems=[
+  //   BottomNavigationItems(
+  //     icon: Icons.home,
+  //     label: "Home",
+  //     navigationItems: [
+  //       TabNavigationItems(
+  //         icon: Icons.home,
+  //         label: "Home",
+  //         url: "/home",
 
-    )
-  ];
+  //   )
+  // ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

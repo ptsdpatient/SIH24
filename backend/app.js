@@ -12,31 +12,35 @@ app.use(express.json());
 app.use(cors())
 
 
-
 app.get('/authenticateToken',async (req,res)=>{
 
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
 
-     
     
     if (!token) {
       return res.status(401).json({ error: 'Token is required' });
     }
 
-    jwt.verify(token, secretKey, (err, user) => {
+     jwt.verify(token, secretKey, async (err, user) => {
 
         if (err) {
             return res.status(403).json({ error: 'Invalid token'+err });
         }
-
-        console.log(user +" "+ user.userId)
         
-        const userInfo =  pool.query('SELECT * FROM users WHERE id = $1', [user.userId])
+        const userInfo = await pool.query('SELECT * FROM users WHERE id = $1', [user.userId])
 
-        console.log(printLog('->','g','200','Token is valid'),printValue('user',user))
+        if(userInfo.rows.length > 0) {
+            
+            console.log(printLog('->','g','200','Token is valid'),printValue('user',userInfo.rows[0].email),printValue('admin',userInfo.rows[0].isadmin!=0))
+            
+            return res.status(200).json({
+                auth:true,
+                user:userInfo.rows[0],
+                admin:userInfo.rows[0].isadmin!=0
+            })
 
-        return res.status(200).json({auth:true,user:userInfo.rows[0]})
+        }else return res.status(403).json({error: 'Invalid token'})
 
     });
 })
@@ -56,7 +60,7 @@ app.post('/login', async (req, res) => {
         const {rows} = await pool.query('SELECT id, hashed_password FROM users WHERE email = $1',[email])
 
         if (rows.length === 0) {
-            console.log(printLog('->','r','401','User not found with : '),printValue('email', email),printValue('password', password))
+            console.log(printLog('->','r','401','User not found with : ') ,printValue('email', email),printValue('password', password))
             return res.status(401).json({ error: 'Invalid email or password' });
         }
 
@@ -64,7 +68,7 @@ app.post('/login', async (req, res) => {
         const isMatch = await comparePassword(password, hashedPassword);
 
         if (isMatch) {
-            const token = jwt.sign({ userId: rows[0].id }, secretKey, { expiresIn: '2h' });
+            const token = jwt.sign({ userId: rows[0].id}, secretKey, { expiresIn: '2h' });
             const userInfo = await pool.query('SELECT * FROM users WHERE id = $1', [rows[0].id]);
             console.log(printLog('->','g','200','Login request successful with : '),printValue('email', email),printValue('password',password))
             return res.status(200).json({user:userInfo.rows[0],token:token});

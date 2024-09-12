@@ -17,8 +17,8 @@
             const data = await response.json();
             
             if(data.auth){
-              if(data.admin){
-                window.location.href='/admin'
+              if(!data.admin){
+                window.location.href='/home'
               }
             }
 

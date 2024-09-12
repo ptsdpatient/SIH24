@@ -4,6 +4,8 @@
 
     let email = '';
     let password = '';
+    let enableTokenDebugging = false;
+
 
     async function authenticateToken(token){
         try{
@@ -12,12 +14,16 @@
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
-                }
+                },
+               
             })
+
             const data = await response.json();
+
             if(data.auth){
-              window.location.href = '/home'
+              window.location.href = data.admin?'/admin':'/home'
             }
+
         }catch(err){
             alert("your session has expired, please login again")
         }
@@ -42,11 +48,7 @@
           alert("failed")
           throw new Error('Login failed');
         }
-      
-        if(response.status==200) {
-            login=true
-            getMessageChannels()
-        }
+    
 
         const data = await response.json();
         if(data.token) {
