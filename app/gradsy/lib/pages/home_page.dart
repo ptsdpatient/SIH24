@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gradsy/pages/notification_page.dart';
+import 'package:gradsy/pages/profile_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import '../components/input.dart';
@@ -35,23 +37,16 @@ class _HomePageState extends State<HomePage> {
   var currentBottomIndex=0;
   final searchController=TextEditingController();
 
-  // List<BottomNavigationItems> bottomNavigationItems=[
-  //   BottomNavigationItems(
-  //     icon: Icons.home,
-  //     label: "Home",
-  //     navigationItems: [
-  //       TabNavigationItems(
-  //         icon: Icons.home,
-  //         label: "Home",
-  //         url: "/home",
 
-  //   )
-  // ];
+  final GlobalKey<ScaffoldState> mainPageKey = GlobalKey<ScaffoldState>();
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      key: mainPageKey,
+      drawer: NotificationPage(),
+      endDrawer: ProfilePage(),
       body: DefaultTabController(
           length: 2,
           initialIndex: 0,
@@ -61,14 +56,15 @@ class _HomePageState extends State<HomePage> {
             slivers: [
               SliverAppBar(
                 expandedHeight: 225,
-                leading: IconButton(
-                  padding: EdgeInsets.only(left:10),
-                  onPressed: (){},
-                  icon: Icon(
-                    Icons.notifications_active_sharp,size: 35,
+                leading:  IconButton(
+                    onPressed: (){
+                      mainPageKey.currentState?.openDrawer();
+                    },
+                    icon: Icon(Icons.notifications_active_sharp,size: 35),
+                    color: Colors.white
                   ),
-                  color: Colors.white,
-                ),
+
+
                 backgroundColor: Colors.blue,
                 centerTitle: true,
                 pinned: false,
@@ -118,6 +114,7 @@ class _HomePageState extends State<HomePage> {
                 actions: [
                   IconButton(
                     onPressed: (){
+                      mainPageKey.currentState?.openEndDrawer();
                     },
                     icon: Padding(
                       padding: EdgeInsets.only(right: 10),

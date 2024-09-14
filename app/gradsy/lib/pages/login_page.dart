@@ -7,8 +7,12 @@ import 'package:gradsy/components/input.dart';
 import 'package:gradsy/global_data.dart';
 import 'package:gradsy/theme.dart';
 import 'package:http/http.dart' as http;
-import '../components/login.dart';
+import '../components/login_button.dart';
 import '../methods.dart';
+import '../token.dart';
+
+
+
 
 class LoginPage extends StatefulWidget {
   @override
@@ -17,9 +21,44 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPage extends State<LoginPage> {
 
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    authenticateToken();
+  }
+
+
   final apiKey=dotenv.env['API_KEY']!;
 
   TextEditingController emailController = TextEditingController(), passwordController = TextEditingController(), collegeCodeController = TextEditingController(),confirmPasswordController = TextEditingController();
+
+  Future<void> authenticateToken() async {
+    String? token = await storage.read(key: 'auth_token');
+    final url = Uri.parse(apiKey+'authenticateToken');
+
+    try {
+      final response = await http.get(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        print('Login successful: ${response.body}');
+        Navigator.pushNamed(context, '/home');
+      } else {
+        print('Login failed: ${response.statusCode} - ${response.body}');
+        removeToken();
+      }
+    } catch (error) {
+      print('Error occurred: $error');
+    }
+  }
+
 
   Future<void> loginUser(String email, String password) async {
     final url = Uri.parse(apiKey+'login');
@@ -39,8 +78,17 @@ class _LoginPage extends State<LoginPage> {
       );
 
       if (response.statusCode == 200) {
-        print('Login successful: ${response.body}');
-        Navigator.pushNamed(context, '/home');
+        final responseData = jsonDecode(response.body);
+
+        if (responseData.containsKey('token')) {
+          String token = responseData['token'];
+          await saveToken(token);
+
+          print('Login successful: ${response.body}');
+          Navigator.pushNamed(context, '/home');
+        } else {
+          print('Token not found in response');
+        }
       } else {
         print('Login failed: ${response.statusCode} - ${response.body}');
       }
@@ -90,14 +138,7 @@ class _LoginPage extends State<LoginPage> {
         child: Container(
           width: w,
           height: h,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                getColor(userTheme.modeBG()),
-                getColor(userTheme.getGradient()),
-              ],
-            ),
-          ),
+          color: getColor('F0F0F0'),
           child: DefaultTabController(
             length: 2,
             initialIndex: 0,

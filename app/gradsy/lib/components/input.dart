@@ -42,7 +42,7 @@ class _InputState extends State<Input> {
               width: widget.width*0.9,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
-                  gradient:  LinearGradient(colors: [getColor(currentTheme.gradientStart),getColor(currentTheme.gradientEnd)]),
+                  // gradient:  LinearGradient(colors: [getColor(currentTheme.gradientStart),getColor(currentTheme.gradientEnd)]),
               ),child:Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 3,vertical: 3),
                   child: ClipRRect(

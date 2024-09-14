@@ -5,7 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4c7ee51-7c5b-4d81-aa02-ce173dc29ffe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/gradsy/lib/components/login_button.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradsy/lib/pages/notification_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradsy/lib/pages/profile_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradsy/lib/token.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/.env" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/lib/components/input.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/components/input.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/lib/components/login.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/lib/global_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/global_data.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/lib/methods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/methods.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/lib/pages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/pages/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/lib/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/lib/theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradsy/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/lib/datatypes/user.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/routes/login/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/routes/login/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
