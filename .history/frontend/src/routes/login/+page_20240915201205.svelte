@@ -21,7 +21,7 @@
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
   <!-- Container -->
-  <div class="bg-white p-8 py-2 rounded-lg shadow-lg max-w-md w-full">
+  <div class="bg-white p-8 py-1 rounded-lg shadow-lg max-w-md w-full">
     <!-- Logo -->
     <div class="flex justify-center mb-2">
       <img src="/icon/gradsy.png" alt="Gradsy Logo" class="h-16">

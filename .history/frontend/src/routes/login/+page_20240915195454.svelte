@@ -4,26 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gradsy Login</title>
-  
-  <!-- Import Poppins Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Apply Poppins font in Tailwind -->
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-  </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
   <!-- Container -->
-  <div class="bg-white p-8 py-2 rounded-lg shadow-lg max-w-md w-full">
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
     <!-- Logo -->
-    <div class="flex justify-center mb-2">
+    <div class="flex justify-center mb-20">
       <img src="/icon/gradsy.png" alt="Gradsy Logo" class="h-16">
     </div>
 
@@ -52,17 +40,17 @@
       </div>
 
       <!-- Sign In Button -->
-      <button type="submit" class="w-full bg-[#49b6c5] text-white p-2 rounded-lg hover:bg-[#3aa7b2]">SIGN IN</button>
+      <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600">SIGN IN</button>
     </form>
 
     <!-- Sign Up Link -->
     <p class="text-center text-gray-600 mt-4">Don't have an account? <a href="#" class="text-blue-500 hover:underline">Sign Up</a></p>
 
     <!-- OR Sign In With -->
-    <div class="flex items-center justify-between mt-6">
-      <div class="border-t flex-grow mr-3"></div>
-      <span class="text-gray-500">Or Sign In With</span>
-      <div class="border-t flex-grow ml-3"></div>
+    <div class="flex items-center justify-center mt-6">
+      <div class="border-t w-full"></div>
+      <span class="mx-3 text-gray-500">Or Sign In With</span>
+      <div class="border-t w-full"></div>
     </div>
 
     <!-- Social Buttons -->

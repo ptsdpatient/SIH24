@@ -4,19 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gradsy Login</title>
-  
-  <!-- Import Poppins Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Apply Poppins font in Tailwind -->
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-  </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
@@ -52,7 +40,7 @@
       </div>
 
       <!-- Sign In Button -->
-      <button type="submit" class="w-full bg-[#49b6c5] text-white p-2 rounded-lg hover:bg-[#3aa7b2]">SIGN IN</button>
+      <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600">SIGN IN</button>
     </form>
 
     <!-- Sign Up Link -->
