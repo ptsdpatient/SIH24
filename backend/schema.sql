@@ -55,8 +55,8 @@ CREATE TABLE interests(
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY ,
-    isAdmin INTEGER DEFAULT 0,
-    isFaculty INTEGER DEFAULT 0,
+    isadmin INTEGER DEFAULT 0,
+    isfaculty INTEGER DEFAULT 0,
     first_name TEXT,
     last_name TEXT ,
     email TEXT,

@@ -5,7 +5,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:gradsy/components/button.dart';
 import 'package:gradsy/components/input.dart';
 import 'package:gradsy/global_data.dart';
-import 'package:gradsy/theme.dart';
 import 'package:http/http.dart' as http;
 import '../components/login_button.dart';
 import '../methods.dart';
@@ -149,40 +148,17 @@ class _LoginPage extends State<LoginPage> {
                   width: w,
                   height: 230,
                   margin: EdgeInsets.only(top: 40, bottom: 10),
-                  decoration: BoxDecoration(
-                    gradient: GlobalData.instance.lightMode ||
-                        GlobalData.instance.theme == "Zen"
-                        ? RadialGradient(
-                      colors: [
-                        Colors.white,
-                        Colors.white.withOpacity(0.75),
-                        Colors.white.withOpacity(0.5),
-                        Colors.white.withOpacity(0),
-                      ],
-                    )
-                        : RadialGradient(
-                      colors: [
-                        getColor(currentTheme.gradientStart),
-                        getColor(currentTheme.gradientStart)
-                            .withOpacity(0.75),
-                        getColor(currentTheme.gradientStart)
-                            .withOpacity(0.5),
-                        getColor(currentTheme.gradientStart).withOpacity(0),
-                      ],
-                    ),
-                  ),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                    child: Image.asset("images/icon.png"),
+                    padding: EdgeInsets.only(top:30),
+                    child: Image.asset("images/gradsy-new.png"),
                   ),
                 ),
                 TabBar(
                   indicatorPadding: EdgeInsets.only(top: 25),
                   dividerColor: Colors.transparent,
-                  indicatorColor: getColor(currentTheme.gradientStart),
-                  labelColor: getColor(userTheme.textMode()),
-                  unselectedLabelColor:
-                  getColor(userTheme.textMode()).withOpacity(0.5),
+                  indicatorColor: getColor('49b6c5'),
+                  labelColor: Colors.black,
+                  unselectedLabelColor:Colors.grey,
                   indicatorSize: TabBarIndicatorSize.label,
                   tabs: [
                     Tab(
@@ -239,7 +215,7 @@ class _LoginPage extends State<LoginPage> {
                             child: Text(
                               "or login with",
                               style:
-                              TextStyle(color: getColor(userTheme.textMode())),
+                              TextStyle(color: Colors.grey),
                             ),
                           ),
                           Padding(

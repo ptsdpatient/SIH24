@@ -44,7 +44,9 @@ async function authAdmin(req, res, next) {
 }
 
 
+
 app.get('/usersList',authUser,async (req, res)=>{
+
     const firstName = req.query.firstName
     const lastName = req.query.lastName
     const fullName = `${firstName} ${lastName}`;
@@ -55,6 +57,7 @@ app.get('/usersList',authUser,async (req, res)=>{
     }catch (err) {
         res.status(500).json({error:"Invalid query parameters"})
     }
+
 })
 
 
@@ -116,7 +119,7 @@ app.post('/login', async (req, res) => {
             const token = jwt.sign({ userId: rows[0].id,admin:(rows[0].isadmin!=0)}, secretKey, { expiresIn: '2h' });
             const userInfo = await pool.query('SELECT * FROM users WHERE id = $1', [rows[0].id]);
             console.log(printLog('->','g','200','Login request successful with : '),printValue('email', email),printValue('password',password))
-            return res.status(200).json({user:userInfo.rows[0],token:token});
+            return res.status(200).json({user:userInfo.rows[0],token:token,admin:userInfo.rows[0].isadmin!=0});
         } else {
             return res.status(401).json({ error: 'Invalid email or password' });
         }

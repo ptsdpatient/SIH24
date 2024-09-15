@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gradsy/theme.dart';
 
 double getWidth(BuildContext context){
   return MediaQuery.of(context).size.width;
@@ -15,7 +14,7 @@ Color getColor(String hexCode) {
 }
 
 String primaryBackgroundTheme(){
-  if(currentTheme.lightMode) return "ffffff";
+  if(true) return "ffffff";
   else return "000000";
 }
 
