@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../methods.dart';
-import '../theme.dart';
 
 class Input extends StatefulWidget{
   final bool obscure;
@@ -42,6 +41,7 @@ class _InputState extends State<Input> {
               width: widget.width*0.9,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
+
                   // gradient:  LinearGradient(colors: [getColor(currentTheme.gradientStart),getColor(currentTheme.gradientEnd)]),
               ),child:Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 3,vertical: 3),
@@ -52,7 +52,7 @@ class _InputState extends State<Input> {
                             scrollPhysics: BouncingScrollPhysics(),
                             obscureText: obscure,
                             style: TextStyle(color: Colors.black),
-                            cursorColor: getColor(currentTheme.gradientStart),
+                            cursorColor: Colors.grey,
                             decoration:InputDecoration(
                                 filled: true,
                                 fillColor: Colors.white,
@@ -61,15 +61,14 @@ class _InputState extends State<Input> {
                                     setState(() {
                                       obscure=!obscure;
                                     });
-                                  }, icon: Icon(Icons.remove_red_eye,color: getColor(currentTheme.gradientStart),)),):null,
+                                  }, icon: Icon(Icons.remove_red_eye,color: Colors.grey,)),):null,
                                 labelText: widget.label,
                                 border: InputBorder.none,
-                                labelStyle:TextStyle(color: getColor(currentTheme.gradientStart))
+                                labelStyle:TextStyle(color: Colors.grey))
                             )
-                        ),
-                      )
+                    )
+                  )
           )
-          )
-      );
+    );
   }
 }

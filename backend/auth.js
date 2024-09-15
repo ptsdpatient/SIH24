@@ -28,4 +28,4 @@ module.exports = {
 };
 
 
-// console.log(hashPassword('hibro'))
+// console.log(hashPassword('zish'))
