@@ -1,6 +1,6 @@
 # SIH'24 Project: Gradsy 🎓✨
 
-![Project Gradsy](https://i.ibb.co/93GHmt4/icon.png) 
+![Project Gradsy](https://i.ibb.co/Lk4SPmz/gradsy-banner.png) 
 
 ### 📜 Problem Statement
 - **🆔 ID:** 1609
