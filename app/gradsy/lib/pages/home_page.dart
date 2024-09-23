@@ -5,6 +5,7 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import '../components/input.dart';
 import '../methods.dart';
+import 'home_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -15,19 +16,21 @@ class TabNavigationItems{
   final IconData icon;
   final String label;
   final String url;
-  FutureBuilder<Widget> builder;
+
     TabNavigationItems({
       required this.icon,
       required this.label,
       required this.url,
-      required this.builder
+
     });
 }
-class BottomNavigationItems{
+
+
+class NavigationItems{
   final IconData icon;
   final String label;
   final List<TabNavigationItems> navigationItems;
-  BottomNavigationItems({
+  NavigationItems({
     required this.icon,
     required this.label,
     required this.navigationItems
@@ -39,8 +42,74 @@ class _HomePageState extends State<HomePage> {
   final searchController=TextEditingController();
 
 
+
   final GlobalKey<ScaffoldState> mainPageKey = GlobalKey<ScaffoldState>();
 
+  List navigation = [
+    new NavigationItems(
+      icon: Icons.home,
+      label: 'Home',
+      navigationItems: [
+        TabNavigationItems(
+          icon: Icons.message,
+          label: 'Message',
+          url: '/messages',
+        ),
+        TabNavigationItems(
+          icon: Icons.groups,
+          label: 'Groups',
+          url: '/groups',
+        ),
+        TabNavigationItems(
+          icon: Icons.home_work_outlined,
+          label: 'College',
+          url: '/college',
+        ),
+      ]
+    ),
+    new NavigationItems(
+        icon: Icons.home,
+        label: 'Explore',
+        navigationItems: [
+          TabNavigationItems(
+            icon: Icons.newspaper_rounded,
+            label: 'Blog',
+            url: '/blogs',
+          ),
+          TabNavigationItems(
+            icon: Icons.campaign,
+            label: 'Campaigns',
+            url: '/campaign',
+          ),
+          TabNavigationItems(
+            icon: Icons.work,
+            label: 'Jobs',
+            url: '/job',
+          ),
+        ]
+    ),
+    new NavigationItems(
+        icon: Icons.photo_album_rounded,
+        label: 'Alumni',
+        navigationItems: [
+          TabNavigationItems(
+            icon: Icons.people,
+            label: 'Alumni',
+            url: '/alumni',
+          ),
+          TabNavigationItems(
+            icon: Icons.stairs,
+            label: 'Success Stories',
+            url: '/success_stories',
+          ),
+          TabNavigationItems(
+            icon: Icons.home_work_outlined,
+            label: 'College',
+            url: '/college',
+          ),
+        ]
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +168,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 bottom: TabBar(
-                    labelColor: getColor('49b6c5'),
+                    labelColor: Colors.blue,
                     indicatorColor: getColor('49b6c5'),
                     unselectedLabelColor: Colors.black,
                   tabs: [

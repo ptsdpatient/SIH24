@@ -55,7 +55,7 @@ function printLog(prefix,color,status,message){
 }
 
 function printValue(property, value) {
-    return `\n\t\t\x1b[34m${property} : \x1b[32m${value}\x1b[37m`
+    return `\n\t\t\x1b[36m${property} : \x1b[32m${value}\x1b[37m`
 }
 
 module.exports = {
