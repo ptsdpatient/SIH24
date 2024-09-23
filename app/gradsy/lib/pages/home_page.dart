@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradsy/builder.dart';
 import 'package:gradsy/pages/notification_page.dart';
 import 'package:gradsy/pages/profile_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -16,7 +17,11 @@ class TabNavigationItems{
   final IconData icon;
   final String label;
   final String url;
+<<<<<<< Updated upstream
 
+=======
+  FutureBuilder builder;
+>>>>>>> Stashed changes
     TabNavigationItems({
       required this.icon,
       required this.label,
@@ -26,7 +31,11 @@ class TabNavigationItems{
 }
 
 
+<<<<<<< Updated upstream
 class NavigationItems{
+=======
+class BottomNavigationItems{
+>>>>>>> Stashed changes
   final IconData icon;
   final String label;
   final List<TabNavigationItems> navigationItems;
@@ -37,6 +46,7 @@ class NavigationItems{
   });
 }
 
+
 class _HomePageState extends State<HomePage> {
   var currentBottomIndex=0;
   final searchController=TextEditingController();
@@ -44,7 +54,10 @@ class _HomePageState extends State<HomePage> {
 
 
   final GlobalKey<ScaffoldState> mainPageKey = GlobalKey<ScaffoldState>();
+  //  0 means the start
+  int bottomNavIndex=0,tabNavIndex=0;
 
+<<<<<<< Updated upstream
   List navigation = [
     new NavigationItems(
       icon: Icons.home,
@@ -109,6 +122,22 @@ class _HomePageState extends State<HomePage> {
           ),
         ]
     ),
+=======
+  List<BottomNavigationItems> bottomNavItems=[
+    BottomNavigationItems(
+      icon: Icons.home,
+      label: 'Home',
+      navigationItems: [
+          TabNavigationItems(
+            icon: Icons.home,
+            label: 'Home',
+            url: '/home',
+            builder: messageBuilder()
+          )
+      ]
+    ),
+
+>>>>>>> Stashed changes
   ];
 
   @override
@@ -168,28 +197,23 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 bottom: TabBar(
+<<<<<<< Updated upstream
                     labelColor: Colors.blue,
                     indicatorColor: getColor('49b6c5'),
                     unselectedLabelColor: Colors.black,
+=======
+>>>>>>> Stashed changes
                   tabs: [
-                    Tab(
-                      icon: Icon(Icons.message_rounded,size: 35),
-                      child: Text("Messages",
-                        style: TextStyle(fontSize: 10),
-                      ),
-                    ),
-                    Tab(
-                      icon: Icon(Icons.groups,size: 35),
-                      child: Text("Group",
-                        style: TextStyle(fontSize: 10),
-                      ),
-                    ),
-                    Tab(
-                      icon: Icon(Icons.home_work_outlined,size: 35),
-                      child: Text("College",
-                        style: TextStyle(fontSize: 10),
-                      ),
-                    ),
+                    ListView.builder(
+                        itemCount:2,
+                        itemBuilder: (context,index){
+                      return IconButton(
+                        icon: Container(),
+                        onPressed: () {
+
+                        },
+                      );
+                    })
                   ],
                 ),
                 title: Text("Home", style: TextStyle(color: Colors.black),),

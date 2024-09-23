@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4c7ee51-7c5b-4d81-aa02-ce173dc29ffe" name="Changes" comment="">
+<<<<<<< Updated upstream
+=======
+      <change afterPath="$PROJECT_DIR$/gradsy/lib/builder.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradsy/lib/components/load.dart" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradsy/.env" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradsy/lib/pages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gradsy/lib/pages/home_page.dart" afterDir="false" />
