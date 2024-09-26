@@ -4,7 +4,11 @@ import 'package:gradsy/pages/login_page.dart';
 import 'package:gradsy/pages/settings_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-Future<void> main() async {
+void main(){
+  start();
+}
+
+Future<void> start() async {
   await dotenv.load(fileName: ".env");
   runApp(MainApp());
 }

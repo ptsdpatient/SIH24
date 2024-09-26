@@ -4,25 +4,20 @@ let colorSwitch="\x1b[37m"
 function getFormattedDate() {
     const date = new Date();
 
-    // Get day, month, and year
-    const day = String(date.getDate()).padStart(2, '0'); // Ensure two digits
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based
-    const year = String(date.getFullYear()).slice(-2); // Get last two digits of year
+    const day = String(date.getDate()).padStart(2, '0'); 
+    const month = String(date.getMonth() + 1).padStart(2, '0'); 
+    const year = String(date.getFullYear()).slice(-2); 
 
-    // Get hours and minutes
     let hours = date.getHours();
-    const minutes = String(date.getMinutes()).padStart(2, '0'); // Ensure two digits
+    const minutes = String(date.getMinutes()).padStart(2, '0'); 
     const ampm = hours >= 12 ? 'PM' : 'AM';
 
-    // Convert to 12-hour format
     hours = hours % 12;
-    hours = hours ? hours : 12; // '0' should be '12'
+    hours = hours ? hours : 12; 
 
-    // Format hours as two digits
     const formattedHours = String(hours).padStart(2, '0');
 
-    // Combine everything into the desired format
-    return `\x1b[34m${day}/${month}/${year}\x1b[37m ;\x1b[34m ${formattedHours}:${minutes} ${ampm}\x1b[37m`;
+    return `\x1b[90m${day}/${month}/${year}\x1b[37m ;\x1b[90m ${formattedHours}:${minutes} ${ampm}\x1b[37m`;
 }
 
 function printLog(prefix,color,status,message){
@@ -51,7 +46,7 @@ function printLog(prefix,color,status,message){
         default:
     }
     consoleIndex++;
-    return `\n\n${consoleIndex}) [${getFormattedDate()}] (${colorSwitch}${prefix}\x1b[37m) status : ${colorSwitch}${status}\x1b[37m \n\t\x1b[37m${message}`
+    return `\n\n\x1b[90m${consoleIndex}\x1b[37m) [${getFormattedDate()}] (${colorSwitch}${prefix}\x1b[37m) status : ${colorSwitch}${status}\x1b[37m \n\t\x1b[37m${message}`
 }
 
 function printValue(property, value) {

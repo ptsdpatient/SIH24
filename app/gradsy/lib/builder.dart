@@ -10,7 +10,7 @@ final apiKey=dotenv.env['API_KEY']!;
 
 Future<void> fetchChannels() async {
   String? token = await storage.read(key: 'auth_token');
-  final url = Uri.parse(apiKey+'messageChannels');
+  final url = Uri.parse('${apiKey}messageChannels');
 
   try {
     final response = await http.get(
