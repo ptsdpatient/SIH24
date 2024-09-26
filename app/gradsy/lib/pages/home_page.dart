@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gradsy/builder.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
+import 'package:circular_bottom_navigation/tab_item.dart';
 import 'notification_page.dart';
 import 'profile_page.dart';
 
@@ -50,16 +51,20 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       navigationItems: [
         TabNavigationItems(
             icon: Icons.message,
-            label: 'MSG',
+            label: 'Messages',
             url: '/messages',
             builder: messageBuilder()
         ),TabNavigationItems(
-            icon: Icons.message,
-            label: 'MSG',
-            url: '/messages',
-            builder: messageBuilder()
+            icon: Icons.groups,
+            label: 'Groups',
+            url: '/groups',
+            builder: groupBuilder()
+        ),TabNavigationItems(
+            icon: Icons.home_work_rounded,
+            label: 'College',
+            url: '/college',
+            builder: collegeBuilder()
         ),
-
       ],
     ),NavigationItems(
       icon: Icons.explore,
@@ -85,7 +90,9 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       ],
     ),
   ];
+
   late TabController tabController;
+  late CircularBottomNavigationController bottomNavigationController;
 
   @override
   void initState() {
@@ -94,6 +101,11 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         length: navigation[bottomNavIndex].navigationItems.length,
         vsync: this
     );
+
+    bottomNavigationController= CircularBottomNavigationController(0);
+
+
+
     super.initState();
   }
 
@@ -195,25 +207,29 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           ],
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: SalomonBottomBar(
-          selectedItemColor: Colors.blue[600],
-          unselectedItemColor: Colors.black,
-          currentIndex: bottomNavIndex,
-          onTap: (int i) {
-            setState(() {
-              if(tabController.index==i)tabController.index = 0;
-              bottomNavIndex = i;
-            });
-          },
-          items: [
-            SalomonBottomBarItem(icon: Icon(navigation[0].icon, size: 35), title: Text(navigation[0].label)),
-            SalomonBottomBarItem(icon: Icon(navigation[1].icon, size: 35), title: Text(navigation[1].label)),
-            SalomonBottomBarItem(icon: Icon(navigation[2].icon, size: 35), title: Text(navigation[2].label)),
-          ],
-        ),
-      ),
+      bottomNavigationBar: CircularBottomNavigation(
+            [
+              for(NavigationItems items in navigation)
+                TabItem(
+                  items.icon,
+                  items.label,
+                  Colors.blue,
+                )
+            ],
+            normalIconColor: Colors.black,
+            iconsSize: 35,
+            controller:bottomNavigationController,
+            selectedPos: 0,
+            barHeight: 70,
+            animationDuration: Duration(milliseconds: 300),
+            selectedCallback: (int? selectedPos) {
+              setState(() {
+                if(selectedPos!=bottomNavIndex)tabController.index=0;
+
+                bottomNavIndex = selectedPos!;
+              });
+            },
+      )
     );
   }
 }

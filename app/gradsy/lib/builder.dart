@@ -47,3 +47,33 @@ FutureBuilder messageBuilder(){
     }
   );
 }
+
+FutureBuilder groupBuilder(){
+  return FutureBuilder(
+      future: fetchChannels(),
+      builder: (context, snapshot){
+        if(snapshot.hasData){
+          return Text(snapshot.data);
+        }else if(snapshot.hasError){
+          return Text("An error occurred: ${snapshot.error}");
+        } else{
+          return LoadIcon();
+        }
+      }
+  );
+}
+
+FutureBuilder collegeBuilder(){
+  return FutureBuilder(
+      future: fetchChannels(),
+      builder: (context, snapshot){
+        if(snapshot.hasData){
+          return Text(snapshot.data);
+        }else if(snapshot.hasError){
+          return Text("An error occurred: ${snapshot.error}");
+        } else{
+          return LoadIcon();
+        }
+      }
+  );
+}
