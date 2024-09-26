@@ -17,13 +17,13 @@ class _NotificationPageState extends State<NotificationPage> {
             slivers: [
               SliverAppBar(
                 title: Text('Notification'),
+                leading:  IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
                 automaticallyImplyLeading: false,
-                actions: <Widget>[
-                  IconButton(
-                    icon: Icon(Icons.more_horiz),
-                    onPressed: () {},
-                  )
-                ],
               )
             ],
           ),

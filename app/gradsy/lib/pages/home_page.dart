@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gradsy/builder.dart';
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
+import '../methods.dart';
 import 'notification_page.dart';
 import 'profile_page.dart';
 
@@ -71,9 +72,19 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       label: 'Explore',
       navigationItems: [
         TabNavigationItems(
-            icon: Icons.message,
-            label: 'Message',
-            url: '/messages',
+            icon: Icons.feed,
+            label: 'Feed',
+            url: '/feed',
+            builder: messageBuilder()
+        ),TabNavigationItems(
+            icon: Icons.campaign,
+            label: 'Campaigns',
+            url: '/campaign',
+            builder: messageBuilder()
+        ),TabNavigationItems(
+            icon: Icons.work_outlined,
+            label: 'Job',
+            url: '/job',
             builder: messageBuilder()
         ),
       ],
@@ -82,9 +93,19 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       label: 'Alumni',
       navigationItems: [
         TabNavigationItems(
-            icon: Icons.message,
-            label: 'Message',
-            url: '/messages',
+            icon: Icons.person,
+            label: 'Alumni',
+            url: '/alumni',
+            builder: messageBuilder()
+        ),TabNavigationItems(
+            icon: Icons.stairs,
+            label: 'Success Story',
+            url: '/success_story',
+            builder: messageBuilder()
+        ),TabNavigationItems(
+            icon: Icons.edit_note_sharp,
+            label: 'Resource',
+            url: '/resources',
             builder: messageBuilder()
         ),
       ],
@@ -176,7 +197,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                     tabController.index = index;
                   });
                 },
-                labelColor: Colors.blue,
+                labelColor: getColor('49b6c5'),
+                indicatorColor: getColor('49b6c5'),
                 unselectedLabelColor: Colors.black,
                 tabs: [
                   for(TabNavigationItems item in navigation[bottomNavIndex].navigationItems)
@@ -213,7 +235,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                 TabItem(
                   items.icon,
                   items.label,
-                  Colors.blue,
+                  getColor('49b6c5'),
                 )
             ],
             normalIconColor: Colors.black,
@@ -225,7 +247,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             selectedCallback: (int? selectedPos) {
               setState(() {
                 if(selectedPos!=bottomNavIndex)tabController.index=0;
-
                 bottomNavIndex = selectedPos!;
               });
             },
