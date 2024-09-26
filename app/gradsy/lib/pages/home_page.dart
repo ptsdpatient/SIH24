@@ -13,12 +13,14 @@ class HomePage extends StatefulWidget {
 
 class TabNavigationItems {
   final IconData icon;
+  final IconData createIcon;
   final String label;
   final String url;
   final FutureBuilder builder;
 
   TabNavigationItems({
     required this.icon,
+    required this.createIcon,
     required this.label,
     required this.url,
     required this.builder,
@@ -54,16 +56,19 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             icon: Icons.message,
             label: 'Messages',
             url: '/messages',
+            createIcon: Icons.add_comment_rounded,
             builder: messageBuilder()
         ),TabNavigationItems(
             icon: Icons.groups,
             label: 'Groups',
             url: '/groups',
+            createIcon: Icons.group_add_rounded,
             builder: groupBuilder()
         ),TabNavigationItems(
             icon: Icons.home_work_rounded,
             label: 'College',
             url: '/college',
+            createIcon: Icons.add_box_rounded,
             builder: collegeBuilder()
         ),
       ],
@@ -74,38 +79,44 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         TabNavigationItems(
             icon: Icons.feed,
             label: 'Feed',
+            createIcon: Icons.add_box_rounded,
             url: '/feed',
             builder: messageBuilder()
         ),TabNavigationItems(
             icon: Icons.campaign,
             label: 'Campaigns',
             url: '/campaign',
+            createIcon: Icons.add_box,
             builder: messageBuilder()
         ),TabNavigationItems(
             icon: Icons.work_outlined,
             label: 'Job',
             url: '/job',
+            createIcon: Icons.add_box,
             builder: messageBuilder()
         ),
       ],
     ),NavigationItems(
-      icon: Icons.group,
+      icon: Icons.school_rounded,
       label: 'Alumni',
       navigationItems: [
         TabNavigationItems(
             icon: Icons.person,
             label: 'Alumni',
             url: '/alumni',
+            createIcon: Icons.person_add_rounded,
             builder: messageBuilder()
         ),TabNavigationItems(
             icon: Icons.stairs,
             label: 'Success Story',
             url: '/success_story',
+            createIcon: Icons.add_rounded,
             builder: messageBuilder()
         ),TabNavigationItems(
             icon: Icons.edit_note_sharp,
             label: 'Resource',
             url: '/resources',
+            createIcon: Icons.add_box,
             builder: messageBuilder()
         ),
       ],
@@ -125,10 +136,9 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
     bottomNavigationController= CircularBottomNavigationController(0);
 
-
-
     super.initState();
   }
+
 
   @override
   void dispose() {
@@ -143,14 +153,27 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       key: mainPageKey,
       drawer: NotificationPage(),
       endDrawer: ProfilePage(),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+
+        },
+        child: Icon(
+            navigation[bottomNavIndex].navigationItems[tabController.index].createIcon,
+            color:Colors.white,
+            size:33
+        ),
+        backgroundColor:getColor('49b6c5')
+      ),
       body: DefaultTabController(
         length: navigation[bottomNavIndex].navigationItems.length,
         initialIndex: 0,
         child: CustomScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
           slivers: [
             SliverAppBar(
+              title:Text(navigation[bottomNavIndex].navigationItems[tabController.index].label),
               backgroundColor: Colors.white,
               expandedHeight: 220,
               leading: IconButton(
@@ -208,7 +231,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                      )
                 ],
               ),
-              title: Text("Home", style: TextStyle(color: Colors.black)),
               actions: [
                 IconButton(
                   onPressed: () {
