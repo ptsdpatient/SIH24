@@ -38,8 +38,12 @@ async function authAdmin(req, res, next) {
             return res.status(403).json({ error: 'Invalid token'+err });
         }
 
-        if(user.admin) next();
-        else return res.status(403).json({ error: 'Not authorized' });
+        if(user.admin) {
+            next();
+        }
+        else  {
+            return res.status(403).json({ error: 'Not authorized' });
+        } 
     });
 }
 
@@ -53,8 +57,10 @@ app.get('/usersList',authUser,async (req, res)=>{
 
     try {
         const userList = await pool.query(`SELECT first_name, last_name FROM users WHERE CONCAT(first_name, ' ', last_name) = $1`,[fullName]);
+        console.log(printLog('📨','g','200','Users DB info sent to : ') ,printValue('email', email))
         res.status(200).json({userList:userList.rows});
     }catch (err) {
+        console.log(printLog('📨','r','500','Users DB info denied for : ') ,printValue('email', email))
         res.status(500).json({error:"Invalid query parameters"})
     }
 
@@ -80,7 +86,7 @@ app.get('/authenticateToken',async (req,res)=>{
 
         if(userInfo.rows.length > 0) {
             
-            console.log(printLog('->','g','200','Token is valid'),printValue('email',userInfo.rows[0].email),printValue('admin',userInfo.rows[0].isadmin!=0))
+            console.log(printLog('🔖','g','200','Token is valid'),printValue('email',userInfo.rows[0].email),printValue('admin',userInfo.rows[0].isadmin!=0))
             
             return res.status(200).json({
                 auth:true,
@@ -99,7 +105,7 @@ app.post('/login', async (req, res) => {
    
 
     if (!email || !password) {
-        console.log(printLog('->','r','400','Missing email or password'))
+        console.log(printLog('➥','r','400','Missing email or password'))
         return res.status(400).json({ error: 'Email and password are required' });
     }
 
@@ -108,7 +114,7 @@ app.post('/login', async (req, res) => {
         const {rows} = await pool.query('SELECT id, hashed_password FROM users WHERE email = $1',[email])
 
         if (rows.length === 0) {
-            console.log(printLog('->','r','401','User not found with : ') ,printValue('email', email),printValue('password', password))
+            console.log(printLog('➥','r','401','User not found with : ') ,printValue('email', email),printValue('password', password))
             return res.status(401).json({ error: 'Invalid email or password' });
         }
 
@@ -118,7 +124,7 @@ app.post('/login', async (req, res) => {
         if (isMatch) {
             const token = jwt.sign({ userId: rows[0].id,admin:(rows[0].isadmin!=0)}, secretKey, { expiresIn: '2h' });
             const userInfo = await pool.query('SELECT * FROM users WHERE id = $1', [rows[0].id]);
-            console.log(printLog('->','g','200','Login request successful with : '),printValue('email', email),printValue('password',password))
+            console.log(printLog('➥','g','200','Login request successful with : '),printValue('email', email),printValue('password',password))
             return res.status(200).json({user:userInfo.rows[0],token:token,admin:userInfo.rows[0].isadmin!=0});
         } else {
             return res.status(401).json({ error: 'Invalid email or password' });

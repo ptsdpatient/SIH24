@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:gradsy/actions/alumni_action.dart';
+import 'package:gradsy/actions/message_action.dart';
 import 'package:gradsy/builder.dart';
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
+import '../actions/blog_action.dart';
+import '../actions/campaign_action.dart';
+import '../actions/group_action.dart';
+import '../actions/job_action.dart';
+import '../actions/resource_action.dart';
+import '../actions/story_action.dart';
 import '../methods.dart';
 import 'notification_page.dart';
 import 'profile_page.dart';
@@ -17,13 +25,14 @@ class TabNavigationItems {
   final String label;
   final String url;
   final FutureBuilder builder;
-
+  final Widget create;
   TabNavigationItems({
     required this.icon,
     required this.createIcon,
     required this.label,
     required this.url,
     required this.builder,
+    required this.create,
   });
 
 }
@@ -57,16 +66,19 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             label: 'Messages',
             url: '/messages',
             createIcon: Icons.add_comment_rounded,
+            create : MessageCreatePrompt(),
             builder: messageBuilder()
         ),TabNavigationItems(
             icon: Icons.groups,
             label: 'Groups',
             url: '/groups',
+            create: GroupCreatePrompt(),
             createIcon: Icons.group_add_rounded,
             builder: groupBuilder()
         ),TabNavigationItems(
             icon: Icons.home_work_rounded,
             label: 'College',
+            create: Container(),
             url: '/college',
             createIcon: Icons.add_box_rounded,
             builder: collegeBuilder()
@@ -79,18 +91,21 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         TabNavigationItems(
             icon: Icons.feed,
             label: 'Feed',
+            create: BlogCreatePrompt(),
             createIcon: Icons.add_box_rounded,
             url: '/feed',
             builder: messageBuilder()
         ),TabNavigationItems(
             icon: Icons.campaign,
             label: 'Campaigns',
+            create: CampaignCreatePrompt(),
             url: '/campaign',
             createIcon: Icons.add_box,
             builder: messageBuilder()
         ),TabNavigationItems(
             icon: Icons.work_outlined,
             label: 'Job',
+            create: JobCreatePrompt(),
             url: '/job',
             createIcon: Icons.add_box,
             builder: messageBuilder()
@@ -104,18 +119,21 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             icon: Icons.person,
             label: 'Alumni',
             url: '/alumni',
+            create: AlumniConnectPrompt(),
             createIcon: Icons.person_add_rounded,
             builder: messageBuilder()
         ),TabNavigationItems(
             icon: Icons.stairs,
             label: 'Success Story',
             url: '/success_story',
+            create: StoryCreatePrompt(),
             createIcon: Icons.add_rounded,
             builder: messageBuilder()
         ),TabNavigationItems(
             icon: Icons.edit_note_sharp,
             label: 'Resource',
             url: '/resources',
+            create: ResourceCreatePrompt(),
             createIcon: Icons.add_box,
             builder: messageBuilder()
         ),
@@ -154,17 +172,29 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       drawer: NotificationPage(),
       endDrawer: ProfilePage(),
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-
-        },
-        child: Icon(
-            navigation[bottomNavIndex].navigationItems[tabController.index].createIcon,
-            color:Colors.white,
-            size:33
-        ),
-        backgroundColor:getColor('49b6c5')
-      ),
+      floatingActionButton: (navigation[bottomNavIndex].navigationItems[tabController.index].label !="College")?FloatingActionButton(
+          onPressed: () {
+            showModalBottomSheet(
+                context: context,
+                isScrollControlled:true,
+                enableDrag: true, // Set to true if you want drag functionality
+                builder: (BuildContext context){
+              return
+                    ClipRRect(
+                      child: Container(
+                          height:getHeight(context)*0.8,
+                          child: navigation[bottomNavIndex].navigationItems[tabController.index].create
+                      ),
+                    );
+            });
+          },
+          backgroundColor:getColor('49b6c5'),
+          child: Icon(
+              navigation[bottomNavIndex].navigationItems[tabController.index].createIcon,
+              color:Colors.white,
+              size:33
+          )
+      ):Container(),
       body: DefaultTabController(
         length: navigation[bottomNavIndex].navigationItems.length,
         initialIndex: 0,
@@ -174,7 +204,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           slivers: [
             SliverAppBar(
               title:Text(navigation[bottomNavIndex].navigationItems[tabController.index].label),
-              backgroundColor: Colors.white,
+              backgroundColor: getColor('F0F0F0'),
               expandedHeight: 220,
               leading: IconButton(
                 onPressed: () {
@@ -201,7 +231,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                           controller: searchController,
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Colors.black12,
+                            fillColor: Colors.white,
                             prefixIcon: Icon(Icons.search),
                             hintText: "Search",
                             border: InputBorder.none,
@@ -261,6 +291,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                 )
             ],
             normalIconColor: Colors.black,
+            barBackgroundColor: getColor('F0F0F0'),
             iconsSize: 35,
             controller:bottomNavigationController,
             selectedPos: 0,
